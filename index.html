@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pizzaria Delícia — Ultra Premium Experience</title>
+
+    <!-- Fonte de luxo -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+
+    <style>
+        /* --------------------- VARIÁVEIS --------------------- */
+        :root {
+            --primary: #e63946;
+            --secondary: #ffb703;
+            --bg: #faf7f4;
+            --dark: #1a1a1a;
+            --radius: 22px;
+            --glass: rgba(255, 255, 255, 0.3);
+            --shadow: 0 18px 45px rgba(0, 0, 0, 0.15);
+            --blur: blur(16px);
+            --transition: .35s ease;
+        }
+
+        /* --------------------- RESET --------------------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Outfit", sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --------------------- NAVBAR --------------------- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(14px);
+            z-index: 1000;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: auto;
+            padding: 0 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        nav a {
+            margin-left: 35px;
+            color: var(--dark);
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            transition: .3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* --------------------- HERO REDUZIDO --------------------- */
+        /* --------------------- HERO NOVA --------------------- */
+        .hero {
+            margin-top: 90px;
+            padding: 70px 0;
+            background: linear-gradient(135deg, #ffffffdd, #fff4e8bb);
+            border-bottom: 1px solid #ffffff55;
+        }
+
+        .hero-container {
+            max-width: 1300px;
+            margin: auto;
+            padding: 0 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+        }
+
+        .hero-left {
+            flex: 1;
+            animation: fadeLeft .9s ease forwards;
+        }
+
+        .hero-left h2 {
+            font-size: 48px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .hero-left p {
+            font-size: 19px;
+            margin-top: 12px;
+            max-width: 450px;
+            opacity: 0.85;
+        }
+
+        .hero-right {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-right img {
+            width: 620px;
+            height: 520px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* botão */
+        .btn-hero {
+            margin-top: 25px;
+            padding: 14px 38px;
+            background: linear-gradient(130deg, var(--primary), #ff5a5a);
+            border: none;
+            color: #fff;
+            border-radius: var(--radius);
+            font-size: 18px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-hero:hover {
+            transform: translateY(-5px) scale(1.04);
+        }
+
+        /* animações */
+        @keyframes fadeLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-right img {
+                width: 300px;
+                height: 300px;
+                margin-top: 20px;
+            }
+        }
+
+
+        /* --------------------- TÍTULO --------------------- */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 38px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        /* --------------------- GRID PIZZAS --------------------- */
+        .menu-grid {
+            max-width: 1300px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+            padding: 0 25px;
+        }
+
+        .item {
+            background: rgba(255, 255, 255, 0.55);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .item:hover {
+            transform: translateY(-10px) scale(1.03);
+        }
+
+        .item img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+        }
+
+        .item h3 {
+            font-size: 24px;
+            padding: 18px 22px 8px;
+            color: var(--primary);
+        }
+
+        .item p {
+            padding: 0 22px;
+            color: #444;
+        }
+
+        .item span {
+            padding: 18px 22px 25px;
+            font-size: 20px;
+            display: block;
+            font-weight: bold;
+        }
+
+        .sobre-box {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: var(--radius);
+            padding: 40px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            font-size: 20px;
+        }
+
+        #contato {
+            background: #fff1e6;
+            padding: 100px 20px;
+        }
+
+        .contato-box {
+            max-width: 650px;
+            margin: auto;
+            background: #fff;
+            padding: 45px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 14px;
+            margin-top: 14px;
+            border-radius: var(--radius);
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .enviar {
+            width: 100%;
+            margin-top: 25px;
+            padding: 16px;
+            font-size: 18px;
+            font-weight: 700;
+            color: #fff;
+            border: none;
+            border-radius: var(--radius);
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--primary), #ff5a5a);
+            box-shadow: 0 8px 20px rgba(230, 57, 70, 0.35);
+            transition: .35s ease;
+        }
+
+        .enviar:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(230, 57, 70, 0.55);
+            background: linear-gradient(135deg, #ff5a5a, var(--primary));
+        }
+
+        /* --------------------- FOOTER --------------------- */
+        footer {
+            background: var(--dark);
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="container">
+            <h1>Pizzaria Delícia</h1>
+            <nav>
+                <a href="#menu">Cardápio</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO REDUZIDO -->
+    <section class="hero">
+        <div class="hero-container">
+
+            <div class="hero-left">
+                <h2>O Melhor Sabor da Cidade</h2>
+                <p>Pizzas artesanais preparadas com ingredientes premium e fermentação lenta.</p>
+                <button class="btn-hero"
+                    onclick="document.querySelector('#menu').scrollIntoView({ behavior: 'smooth' })">
+                    Ver Cardápio
+                </button>
+            </div>
+
+            <div class="hero-right">
+                <img src="https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?q=80" alt="Pizza Premium">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section id="menu" style="padding: 100px 20px;">
+        <h2 class="section-title">Nosso Cardápio Exclusivo</h2>
+        <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" style="padding: 100px 20px;">
+        <h2 class="section-title">Nossa História</h2>
+        <div class="sobre-box">
+            Desde 1998, a Pizzaria Delícia entrega a verdadeira experiência gourmet italiana,
+            com ingredientes selecionados, massas especiais e um toque artesanal único.
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato">
+        <h2 class="section-title">Fale Conosco</h2>
+        <div class="contato-box">
+            <input type="text" id="nome" placeholder="Seu nome" />
+            <input type="email" id="email" placeholder="Seu email" />
+            <textarea id="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
+            <button class="enviar" onclick="enviarMensagem()">Enviar</button>
+            <p id="retorno"></p>
+        </div>
+    </section>
+
+    <footer>
+        © 2025 Pizzaria Delícia — Ultra Premium Experience.
+    </footer>
+
+    <script>
+        const pizzas = [
+            {
+                nome: "Margherita Premium",
+                preco: "R$ 42,90",
+                desc: "Tomate San Marzano, manjericão fresco e mozzarella artesanal.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Calabresa Artesanal",
+                preco: "R$ 48,90",
+                desc: "Calabresa artesanal premium, cebola roxa e queijo especial.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Quatro Queijos Gold",
+                preco: "R$ 52,90",
+                desc: "Blend de gruyère, parmesão, gorgonzola e mozzarella fresca.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Pepperoni Supreme",
+                preco: "R$ 58,90",
+                desc: "Pepperoni premium crocante e muito queijo.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Frango com Catupiry Original",
+                preco: "R$ 49,90",
+                desc: "Frango artesanal desfiado e Catupiry verdadeiro.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Portuguesa Tradizionale",
+                preco: "R$ 47,90",
+                desc: "Presunto, ovos, cebola, azeitonas e ervilhas frescas.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Bacon Lovers",
+                preco: "R$ 55,90",
+                desc: "Bacon crocante e queijo premium derretido.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Carne Seca Nordestina",
+                preco: "R$ 59,90",
+                desc: "Carne seca premium, abóbora cabotiá e cebola caramelizada.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Veggie Garden",
+                preco: "R$ 46,90",
+                desc: "Vegetais frescos, pesto artesanal e tomate cereja.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Pizza Trufada Premium",
+                preco: "R$ 69,90",
+                desc: "Cogumelos frescos e azeite trufado.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "A Moda do Chef",
+                preco: "R$ 62,90",
+                desc: "Criação especial do chef com ingredientes selecionados.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+            {
+                nome: "Chocolate Belga",
+                preco: "R$ 44,90",
+                desc: "Chocolate belga derretido com morangos.",
+                img: "https://images.unsplash.com/photo-1571997478779-2adcbbe9ab2f?auto=format&fit=crop&w=900&q=80"
+            },
+        ];
+
+
+        const grid = document.getElementById("menu-grid");
+        pizzas.forEach(p => {
+            grid.innerHTML += `
+    <div class="item">
+      <img src="${p.img}">
+      <h3>${p.nome}</h3>
+      <p>${p.desc}</p>
+      <span>${p.preco}</span>
+    </div>
+  `;
+        });
+
+        function enviarMensagem() {
+            document.getElementById("retorno").textContent = "Mensagem enviada!";
+        }
+    </script>
+
+</body>
+
+</html>
