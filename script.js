@@ -102,7 +102,6 @@ menuBtn.addEventListener("click", () => {
     navbar.classList.toggle("active");
 });
 
-// Fecha ao clicar fora
 document.addEventListener("click", (e) => {
     if (!navbar.contains(e.target) && !menuBtn.contains(e.target)) {
         navbar.classList.remove("active");
