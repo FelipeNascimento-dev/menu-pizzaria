@@ -1,3 +1,13 @@
+const menuCategorias = document.getElementById("menu-categorias");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 300) {
+        menuCategorias.classList.add("active");
+    } else {
+        menuCategorias.classList.remove("active");
+    }
+});
+
 const pizzas = [
     {
         nome: "Margherita Premium",
@@ -151,3 +161,4 @@ document.addEventListener("click", (e) => {
         menuBtn.classList.remove("active");
     }
 });
+
