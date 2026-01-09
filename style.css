@@ -207,8 +207,9 @@ nav a:hover {
 }
 
 .btn-hero {
+    height: 52px; 
     margin-top: 25px;
-    padding: 14px 38px;
+    padding: 14px 34px;
     background: linear-gradient(130deg, var(--primary), #ff5a5a);
     border: none;
     color: #fff;
@@ -223,6 +224,7 @@ nav a:hover {
 }
 
 .btn-wpp {
+    height: 52px; 
     display: inline-flex;
     align-items: center;
     gap: 10px;
@@ -428,11 +430,18 @@ footer {
     .btn-hero,
     .btn-wpp {
         width: 220px;
+        height: 52px;              /* FORÇA mesma altura */
+        padding: 0;                /* remove variação */
+        display: flex;             /* ambos iguais */
+        align-items: center;
         justify-content: center;
-        text-align: center;
-        padding: 14px 0;
+        font-size: 18px;
+        font-weight: 600;          /* iguala peso da fonte */
+        line-height: 1;
+        box-sizing: border-box;
     }
 }
+
 
 .menu-categorias {
     position: fixed;
