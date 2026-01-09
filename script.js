@@ -73,26 +73,69 @@ const pizzas = [
     },
 ];
 
+const esfihas = [
+    {
+        nome: "Esfiha de Carne",
+        preco: "R$ 8,90",
+        desc: "Carne temperada com especiarias árabes.",
+        img: "https://amopaocaseiro.com.br/wp-content/uploads/2021/12/yt-051_esfiha-de-queijo_receita.jpg"
+    },
+    {
+        nome: "Esfiha de Frango",
+        preco: "R$ 9,90",
+        desc: "Frango desfiado e tempero especial.",
+        img: "https://amopaocaseiro.com.br/wp-content/uploads/2021/12/yt-051_esfiha-de-queijo_receita.jpg"
+    },
+    {
+        nome: "Esfiha de Queijo",
+        preco: "R$ 8,50",
+        desc: "Queijo derretido e massa artesanal.",
+        img: "https://amopaocaseiro.com.br/wp-content/uploads/2021/12/yt-051_esfiha-de-queijo_receita.jpg"
+    }
+];
 
-const grid = document.getElementById("menu-grid");
-pizzas.forEach(p => {
-    grid.innerHTML += `
-    <div class="item">
-      <img src="${p.img}">
-      <h3>${p.nome}</h3>
-      <p>${p.desc}</p>
-      <span>${p.preco}</span>
-    </div>
-  `;
-});
+const bebidas = [
+    {
+        nome: "Refrigerante Lata",
+        preco: "R$ 6,00",
+        desc: "350ml",
+        img: "https://padarialider.loji.com.br/storage/uploads/vZ9kvbBPGgSgVD1kdZLReIOm1DXXXtqOUsg7fHHk.jpg"
+    },
+    {
+        nome: "Refrigerante 600ml",
+        preco: "R$ 10,00",
+        desc: "600ml",
+        img: "https://alloydeliveryimages.s3.sa-east-1.amazonaws.com/item_images/623affe9779bf.webp"
+    },
+    {
+        nome: "Água Mineral",
+        preco: "R$ 4,00",
+        desc: "Sem gás",
+        img: "https://abir.org.br/abir2022/wp-content/uploads/2020/09/WhatsApp-Image-2020-09-30-at-15.26.58.jpeg"
+    }
+];
 
-function enviarMensagem() {
-    document.getElementById("retorno").textContent = "Mensagem enviada!";
 
-    document.getElementById("nome").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("mensagem").value = "";
+function renderMenu(lista, containerId) {
+    const grid = document.getElementById(containerId);
+    if (!grid) return;
+
+    lista.forEach(item => {
+        grid.innerHTML += `
+            <div class="item">
+                <img src="${item.img}">
+                <h3>${item.nome}</h3>
+                <p>${item.desc}</p>
+                <span>${item.preco}</span>
+            </div>
+        `;
+    });
 }
+
+renderMenu(pizzas, "menu-pizzas");
+renderMenu(esfihas, "menu-esfihas");
+renderMenu(bebidas, "menu-bebidas");
+
 
 const menuBtn = document.getElementById("menu-btn");
 const navbar = document.getElementById("navbar");
