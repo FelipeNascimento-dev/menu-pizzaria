@@ -178,13 +178,13 @@ nav a:hover {
 }
 
 .hero-left h2 {
-    font-size: 48px;
+    font-size: 44px;
     font-weight: 800;
     color: var(--primary);
 }
 
 .hero-left p {
-    font-size: 19px;
+    font-size: 17.5px;
     margin-top: 12px;
     max-width: 450px;
     opacity: 0.85;
@@ -214,7 +214,7 @@ nav a:hover {
     border: none;
     color: #fff;
     border-radius: var(--radius);
-    font-size: 18px;
+    font-size: 16.5px;
     cursor: pointer;
     transition: var(--transition);
 }
@@ -232,7 +232,7 @@ nav a:hover {
     padding: 14px 34px;
     background: linear-gradient(135deg, #25D366, #1ebe5d);
     color: #fff;
-    font-size: 18px;
+    font-size: 16.5px;
     font-weight: 700;
     border-radius: var(--radius);
     text-decoration: none;
@@ -300,7 +300,7 @@ nav a:hover {
 .section-title {
     text-align: center;
     margin-bottom: 60px;
-    font-size: 38px;
+    font-size: 34px;
     font-weight: 800;
     color: var(--primary);
 }
@@ -333,7 +333,7 @@ nav a:hover {
 }
 
 .item h3 {
-    font-size: 24px;
+    font-size: 22px;
     padding: 18px 22px 8px;
     color: var(--primary);
 }
@@ -341,11 +341,12 @@ nav a:hover {
 .item p {
     padding: 0 22px;
     color: #444;
+    font-size: 15px;
 }
 
 .item span {
     padding: 18px 22px 25px;
-    font-size: 20px;
+    font-size: 18px;
     display: block;
     font-weight: bold;
 }
@@ -492,5 +493,20 @@ footer {
     .menu-categorias a {
         font-size: 14px;
         padding: 6px 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .hero-left h2 {
+        font-size: 36px; /* antes estava grande demais */
+    }
+
+    .hero-left p {
+        font-size: 16px;
+    }
+
+    .btn-hero,
+    .btn-wpp {
+        font-size: 15.5px;
     }
 }
